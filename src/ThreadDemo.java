@@ -8,6 +8,7 @@ public class ThreadDemo {
     public static void  main (String [] args){
 
         System.out.println ( " Countdown: " );
+        //Pool mit einer Begrenzung von max. 2 Threads erstellen
         ExecutorService executorService = Executors.newFixedThreadPool ( 2 );
 
         Thread thread1 = new Thread ( new Count () );
