@@ -8,24 +8,32 @@ public class Client {
         String string;
 
         try {
-            //Client erzeugen der auf den Server zeigt
+            //Client built which is pointing at the server
             Socket client = new Socket ( "localhost", 6666 );
             System.out.println ( "Client started" );
 
-            //Streams kommen
+            //Streams getting
             OutputStream outputStream = client.getOutputStream ();
-            //Geht nicht bei Bytecode
+            //Is not working with Bytecode
             PrintWriter writer = new PrintWriter (outputStream);
 
             InputStream inputStream = client.getInputStream ();
 
             BufferedReader reader = new BufferedReader ( new InputStreamReader ( inputStream ) );
 
+            writer.write ( " Hello World ! \n" );
+            //flushes the stream
+            writer.flush ();
+
             string = null;
 
-           writer.write ( " Hello World ! " );
-           //flushes the stream
-           writer.flush ();
+            //Print the Stream coming from the Server
+            while ((string = reader.readLine())!= null){
+                System.out.println ( "Got from Server : " + string );
+
+            }
+
+
 
            writer.close ();
            reader.close ();

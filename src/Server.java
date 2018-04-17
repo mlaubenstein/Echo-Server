@@ -31,8 +31,16 @@ public class Server {
 
             string = null;
 
-            //auslesen der Zeilen, bis ein null Operator auftritt
-            while ((string = reader.readLine ())!= null)System.out.println ( "Got from client" + string );
+            //Auslesen der Zeilen, bis ein null Operator auftritt
+            while ((string = reader.readLine())!= null){
+
+                //Zurückgeben an Client
+                writer.write ( string + "\n" );
+                writer.flush ();
+                
+                System.out.println ( "Got from client : " + string );
+
+            }
 
             writer.close ();
             reader.close ();
