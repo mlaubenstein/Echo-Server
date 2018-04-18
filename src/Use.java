@@ -36,12 +36,19 @@ public class Use implements Runnable{
                 writer.write ( string + "\n" );
                 writer.flush ();
 
+
+
+                
+
                 System.out.println ( "Got from client : " + string );
+
 
             }
             writer.close ();
             reader.close ();
             client.close ();
+
+
 
         }
 
@@ -50,6 +57,8 @@ public class Use implements Runnable{
             //TODO Auto-generated catch block
         }
     }
+    ClientPanel clientPanel = new ClientPanel();
+
 }
 //flush()
 //The java.io.Writer.flush() method flushes the stream. If the stream has saved
